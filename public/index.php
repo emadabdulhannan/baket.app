@@ -6,6 +6,6 @@ error_reporting(E_ALL);
 declare (strict_type = 1);
 
 //autoloading
-require_once dirname(__DIR__).'./vendor/autoload.php';
+require_once dirname(__DIR__).'/vendor/autoload.php';
 dd("here");
 echo "Hello World!";
