@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Set the default index file to public/index.php
+DirectoryIndex public/index.php
+
 # Ensure the request is not for an existing file or directory
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -7,7 +10,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Redirect all requests to public/index.php
 RewriteRule ^(.*)$ public/index.php [L,QSA]
 
-# Deny direct access to everything outside 'public'
+# Prevent direct access to anything outside 'public'
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteRule ^(.*)$ - [F,L]
 
