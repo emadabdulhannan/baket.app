@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Block direct access to public/index.php
+RewriteCond %{THE_REQUEST} /public/index\.php [NC]
+RewriteRule ^ - [F,L]
+
 # Allow direct access to existing files and directories
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
@@ -11,7 +15,7 @@ RewriteRule ^(.*)$ public/index.php [L,QSA]
 # Set public/index.php as the default entry point
 DirectoryIndex public/index.php
 
-# Block direct access to sensitive files
+# Block access to sensitive files
 <FilesMatch "(\.htaccess|\.env|\.ini|\.log|\.bak|\.sh|\.sql|\.php~)$">
     Require all denied
 </FilesMatch>
