@@ -15,7 +15,7 @@
             "SolidAtom\\": "solidatom/"
         }
     },
-    "require-dev": {
+    "require": {
         "symfony/var-dumper": "7.3.x-dev"
     }
 }
