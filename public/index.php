@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 
 declare (strict_type = 1);
 
-//autoloading
+//autoloading vendors
 require_once dirname(__DIR__).'/vendor/autoload.php';
-$text = "dsfsdf";
-dump($text);
+$request = Request::createFromGlobals();
+dump($request);
 echo "Hello World!";
