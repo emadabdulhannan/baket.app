@@ -1,20 +1,4 @@
 RewriteEngine On
-
-# Set the default index file to public/index.php
-DirectoryIndex public/index.php
-
-# Ensure requests are only processed if not for existing files or directories
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# Redirect all requests to public/index.php
-RewriteRule ^(.*)$ /public/index.php [L,QSA]
-
-# Prevent direct access to anything outside 'public'
-RewriteCond %{THE_REQUEST} !\s/public/
-RewriteRule ^(?!public/) - [F,L]
-
-# Prevent directory listing
-
-# Block access to sensitive files
-
+RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]
