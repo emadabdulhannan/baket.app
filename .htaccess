@@ -1,11 +1,21 @@
 RewriteEngine On
 
-# Allow direct access to existing files and directories
+# Ensure the request is not for an existing file or directory
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Redirect all requests to public/index.php
 RewriteRule ^(.*)$ public/index.php [L,QSA]
 
-# Ensure Apache can serve the index file
-DirectoryIndex public/index.php
+# Deny direct access to everything outside 'public'
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ - [F,L]
+
+# Prevent directory listing
+Options -Indexes
+
+# Block access to .htaccess, .env, and other sensitive files
+<FilesMatch "(\.htaccess|\.env|\.ini|\.log|\.bak|\.sh|\.sql|\.php~)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
