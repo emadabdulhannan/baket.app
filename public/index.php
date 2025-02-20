@@ -7,6 +7,6 @@ declare (strict_type = 1);
 
 //autoloading
 require_once dirname(__DIR__).'/vendor/autoload.php';
-use Symfony\Component\VarDumper\VarDumper;
-dump("here");
+$text = "dsfsdf";
+dump($text);
 echo "Hello World!";
