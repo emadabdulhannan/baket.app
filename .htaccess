@@ -1,4 +1,11 @@
 RewriteEngine On
+
+# Allow direct access to existing files and directories
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]
+
+# Redirect all requests to public/index.php
+RewriteRule ^(.*)$ public/index.php [L,QSA]
+
+# Ensure Apache can serve the index file
+DirectoryIndex public/index.php
