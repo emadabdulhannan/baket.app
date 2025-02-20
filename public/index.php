@@ -7,6 +7,7 @@ declare (strict_type = 1);
 
 //autoloading vendors
 require_once dirname(__DIR__).'/vendor/autoload.php';
+use Symfony\Component\HttpFoundation\Request;
 $request = Request::createFromGlobals();
 dump($request);
 echo "Hello World!";
